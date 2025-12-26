@@ -1,11 +1,11 @@
+#!/bin/bash
 set -e
 
-python3 -m ensurepip --upgrade
-python3 -m pip install --upgrade pip
-python3 -m pip install -r requirements.txt
+echo "Installing dependencies..."
+pip install -r requirements.txt --target .vercel/python
 
-python3 manage.py collectstatic --noinput
+echo "Collecting static files..."
+python manage.py collectstatic --noinput
 
-mkdir -p staticfiles_build
-
-cp -r staticfiles_build/static/* staticfiles_build/ || echo "No static files found."
+echo "Applying migrations..."
+python manage.py migrate --noinput
