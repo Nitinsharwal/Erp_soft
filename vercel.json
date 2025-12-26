@@ -2,24 +2,13 @@
   "version": 2,
   "builds": [
     {
-      "src": "erp_syst/wsgi.py",
+      "src": "build.sh",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "staticfiles_build" }
+      "config": { "runtime": "python3.9", "maxLambdaSize": "50mb" }
     }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "erp_syst/wsgi.py"
-    }
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "erp_syst/asgi.py" }
   ]
 }
