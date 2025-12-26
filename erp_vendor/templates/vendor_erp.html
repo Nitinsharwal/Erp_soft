@@ -1,0 +1,27 @@
+{% load static %}
+{% block body %}
+<h1>Add New Vendor</h1>
+<form method="POST">
+    {% csrf_token %}
+    <h4>GST & PAN Information</h4>
+
+    <label for="vendor_id">Vendor_id</label>
+    <input type="text" name="vendor_id" id="">
+
+    <label for="vendor_name">Vendor_name</label>
+    <input type="text" name="vendor_name" id="">
+    
+    <label for="city">City</label>
+    <input type="text" name="city" id="">
+
+    <label for="gst_number">Gst_number</label>
+    <input type="text" name="gst_number" id="">
+
+    <label for="pan_number">Pan number</label>
+    <input type="text" name="pan_number" id="">
+
+<button type="submit">Save</button>
+    
+
+</form>
+{% endblock body %}

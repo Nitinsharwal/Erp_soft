@@ -1,0 +1,12 @@
+{% load static %}
+<nav class="navbar">
+    <a href="#" class="logo">MyApp</a>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+         <li><a href="{% url "vendor_erp" %}">Vendor</a></li>
+         {% comment %}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/logout">Logout</a></li> {% endcomment %}
+    </ul>
+</nav>
